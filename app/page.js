@@ -1,43 +1,19 @@
-
-import Counter from "./components/ui/Counter";
-import Image from "next/image";
+'use client'
+import React, { useState } from "react";
 import Footer from "./components/ui/Footer";
-
-export const metadata = {
-  title: "coderhouse app",
-  description: "App de muestra en Next JS",
-  keywords: ['coderhouse', 'Next JS', 'Vercel', 'SSR'],
-  openGraph: {
-    title: ' Next.js',
-    description: 'The React Framework for the web',
-    type:'article',
-    publisehdTime: '2023-01-01T00:00:00.000Z',
-    authors:['Coderhouse'],
-  },
-};
+import Counter from "./components/ui/Counter";
 
 export default function Home() {
+  const [counter, setCounter] = useState(1);
+  const max = 10; // Set your desired maximum value here
+
   return (
     <div>
-      
       <main className="container mx-auto">
-        <h1 className="text-4xl text-blue-600 font-bold my-4">Next JS</h1>
+        <h1 className="text-4xl text-blue-600 text-bold my-4">Next JS</h1>
         <hr />
         <p className="text-base mt-4">Bienvenidos a coderhouse</p>
-        <Counter />
-      
-        <Image
-          src={"https://www.atptour.com/-/media/images/news/2024/01/19/09/44/abierto-australia-2024-djokovic-viernes.jpg"}
-          alt="Djokovic"
-          width={300}
-          height={300}
-        />
-         <Image
-          src={"https://www.atptour.com/-/media/images/news/2024/01/19/09/44/abierto-australia-2024-djokovic-viernes.jpg"}
-          alt="Djokovic"
-          width={500}
-          height={500}
-        />
+        <Counter counter={counter} setCounter={setCounter} max={max} />
       </main>
       <Footer />
     </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import ContactForm from '../components/contacto/ContactForm'
 
 const Contacto = () => {
   return (
@@ -8,8 +8,7 @@ const Contacto = () => {
     <main className='container m-auto'>
         <h1 className='text-4xl text-blue-600 font-bold my-4'>Contacto</h1>
         <hr/>
-        <p>Pagina de contacto</p>
-
+<ContactForm/>
     </main>
     </>
   )

@@ -1,15 +1,24 @@
+
 import { mockData } from "@/app/data/products";
+
 import ProductCard from "./ProductCard";
 
-const ProductsList = ({ categoria }) => {
-    const items = categoria === 'todos' ? mockData : mockData.filter (item=> item.type === categoria)
-    return (
-    <section className="container m-auto flex justify-center items-center gap-12 flex-warp">
-        {
-            items.map(item => <ProductCard key={item.slug} item={item}/>)
-        }
 
+const ProductsList = async({ categoria }) => {
+
+  const items = await fetch(`http://localhost:3000/api/productos/${categoria}`,{
+    cache:'force-cache',
+     next:{ tags:['productos']
+  }}).then(r => r.json())
+
+
+  return (
+    <section className="container m-auto flex justify-center items-center gap-12 flex-wrap">
+  {
+    items.map(item => <ProductCard key={item.slug} item={item}/>)
+  }
     </section>
-    )}
+  );
+};
 
-    export default ProductsList
+export default ProductsList;
