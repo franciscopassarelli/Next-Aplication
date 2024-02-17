@@ -20,30 +20,31 @@ const ContactForm = () =>{
         console.log(values)
     }
     
-    return(
-        <form onSubmit={handleSubmit} className="my-12">
-            <input
-            type="email"
-            required
-            placeholder="tu email"
-            className="p-2 rounded w-1/2 h-24 p-2 rounded border border-blue-100 block my-4"
-            name="text"
-            onChange={handleChange}
-            />
 
-            <textarea
-            required
-            placeholder="dejanos tu mensaje"
-            className="resize-none w-1/2 h-24 p-2 rounded border border-blue-100 block my-4"
-            name="text"
-            onChange={handleChange}
-            />
+  return (
+    <form onSubmit={handleSubmit} className="my-12 max-w-lg mx-auto">
+      <input
+        type="email"
+        required
+        placeholder="Tu email"
+        className="p-3 w-full rounded border border-blue-300 my-4"
+        name="email"
+        onChange={handleChange}
+      />
 
-            <boton type="submit">Enviar</boton>
+      <textarea
+        required
+        placeholder="Déjanos tu mensaje"
+        className="resize-none w-full p-3 rounded border border-blue-300 my-4"
+        name="message"
+        onChange={handleChange}
+      />
 
+      <Boton type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+        Enviar
+      </Boton>
+    </form>
+  );
+};
 
-        </form>
-    )
-}
-
-export default ContactForm
+export default ContactForm;

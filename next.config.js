@@ -1,3 +1,4 @@
+
 /** @type {import('next').NextConfig} */
 const NextConfig = {
   images: {
@@ -8,4 +9,4 @@ const NextConfig = {
 
 
 module.exports = NextConfig;
-
+  

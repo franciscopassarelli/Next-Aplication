@@ -1,31 +1,49 @@
+import ProductsList from "@/app/components/products/ProductsList"
+import CategoriesMenu from "@/app/components/products/CategoriesMenu"
+import { Suspense } from "react"
+import Footer from "@/app/components/ui/Footer"
 
-import CategoriesMenu from "@/app/components/products/CategoriesMenu";
+export async function generateMetadata({ params, searchParams }, parent) {
+    return {
+        title: `Productos - ${params.categoria}`
+    }
 
-import ProductsList from "@/app/components/products/ProductsList";
-
-
-
-   
-export async function generateMetadata({params, searchParams}, parent){
-  return {
-    title: `CoderApp - ${params.categoria}`,
-  }
 }
-          const Productos = ({ params }) => {
-            const { categoria } = params
-           
-          
-            return (
-              <main className="container m-auto">
-                <h2 className="text-2xl my-10 border-b pb-4">Productos</h2>
 
-                <div className="flex gap-10">
-                  <CategoriesMenu />
-                  <ProductsList categoria={categoria} />
+export function generateStaticParams() {
+    return [
+        {categoria: "todos"}, 
+        {categoria: "raquetas"}, 
+        {categoria: "bolsos"}, 
+        {categoria: "zapatillas"},
+    ]   
+}
+
+export const revalidate = 3600
+
+const Productos = ({ params }) => {
+    const { categoria } = params
+    return (
+        <>
+            <div className="container mx-auto my-8">
+      <h1 className="text-3xl font-bold mb-4">Nuestros Productos</h1>
+      <hr className="border-t-2 border-gray-300 mb-8" />
+
+      <div className="flex flex-col md:flex-row gap-8">
+                    <CategoriesMenu />
+  
+
+                    <Suspense fallback={<div className="text-center">
+                        <h1 className="text-2xl text-center">Cargando...</h1>
+                    </div>
+                    }>
+                        <ProductsList categoria={categoria} />
+                    </Suspense>
                 </div>
-              </main>
-            );
-          };
-          
-          export default Productos;
-           
+            </div>
+            <Footer/>
+        </>
+    )
+}
+
+export default Productos
