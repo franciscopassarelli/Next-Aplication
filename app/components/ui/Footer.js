@@ -1,4 +1,4 @@
-import "tailwindcss/tailwind.css";
+
 import React from 'react';
 
 const Footer = () => {

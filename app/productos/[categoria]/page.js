@@ -34,7 +34,7 @@ const Productos = ({ params }) => {
   
 
                     <Suspense fallback={<div className="text-center">
-                        <h1 className="text-2xl text-center">Cargando...</h1>
+                        <p className="text-2xl text-center">Cargando...</p>
                     </div>
                     }>
                         <ProductsList categoria={categoria} />

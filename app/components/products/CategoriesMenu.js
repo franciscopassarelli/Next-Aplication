@@ -1,6 +1,4 @@
 'use client'
-// Importa los estilos de Tailwind CSS en tu archivo
-import "tailwindcss/tailwind.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 

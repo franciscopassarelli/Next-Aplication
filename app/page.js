@@ -1,5 +1,4 @@
-// Importa los estilos de Tailwind CSS en tu archivo
-import "tailwindcss/tailwind.css";
+
 import React from "react";
 import Footer from "./components/ui/Footer";
 

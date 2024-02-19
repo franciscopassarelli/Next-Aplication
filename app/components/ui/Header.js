@@ -1,5 +1,4 @@
-// Importa los estilos de Tailwind CSS en tu archivo
-import "tailwindcss/tailwind.css";
+
 import Link from 'next/link';
 import React from 'react';
 
@@ -17,7 +16,7 @@ const Header = () => {
       <div className="container mx-auto py-6 flex justify-between items-center">
         <Link href={'/'} passHref>
           <div>
-            <a className="text-4xl font-bold text-white cursor-pointer">FrannTenis</a>
+            <p className="text-4xl font-bold text-white cursor-pointer">FrannTenis</p>
           </div>
         </Link>
 
@@ -25,11 +24,11 @@ const Header = () => {
           {links.map((link) => (
             <Link key={link.label} href={link.href} passHref>
               <div>
-                <a
+                <p
                   className={`text-base text-white px-3 py-2 rounded hover:bg-blue-500 hover:text-white transition-all duration-300`}
                 >
                   {link.label}
-                </a>
+                </p>
               </div>
             </Link>
           ))}
