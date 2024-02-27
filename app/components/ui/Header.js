@@ -7,7 +7,7 @@ const links = [
   { label: 'Nosotros', href: '/nosotros' },
   { label: 'Contacto', href: '/contacto' },
   { label: 'Productos', href: '/productos/todos' },
-  { label: 'Posts', href: '/posts' },
+  { label: 'Add', href: '/login' },
 ];
 
 const Header = () => {

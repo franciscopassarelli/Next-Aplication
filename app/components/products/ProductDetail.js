@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import GoBack from "../ui/GoBack";
 import QtySelector from "./QtySelector";
@@ -12,6 +13,9 @@ const ProductDetail = async ({ slug }) => {
     })
     .catch((error) => console.error('Fetch error:', error));
 
+
+
+
   return (
     <div className="max-w-6xl m-auto border border-gray-200 p-6">
       <GoBack />
@@ -21,8 +25,8 @@ const ProductDetail = async ({ slug }) => {
           <Image
             src={item.image}
             alt={item.title}
-            width={420}
-            height={420}
+            width={220}
+            height={220}
             className="rounded-lg"
           />
         </div>
@@ -32,7 +36,7 @@ const ProductDetail = async ({ slug }) => {
             {item.title}
           </h2>
           <p className="text-2xl font-semibold border-b border-gray-200 pb-2 text-center text-red-500">
-            u$S {item.price}
+            $ {item.price}
           </p>
 
           <QtySelector item={item} />
