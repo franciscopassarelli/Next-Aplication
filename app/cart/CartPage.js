@@ -1,6 +1,5 @@
 import CartItem from './CartItem';
-import Link from 'next/link';
-import { useCartContext } from "../components/Context/CartContext"
+import { useCartContext } from '../components/Context/CartContext';
 // Resto de las importaciones
 
 const CartPage = () => {

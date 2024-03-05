@@ -1,9 +1,26 @@
-
 const path = require('path');
 
 const NextConfig = {
   images: {
-    domains: ['racketsandrunners.ca', 'www.tennis-point.es', 'acdn.mitiendanube.com', 'http2.mlstatic.com', 'acdn.mitiendanube.com', 'www.digitalsport.com.ar', 'http2.mlstatic.com', 'http2.mlstatic.com', 'encrypted-tbn0.gstatic.com','www.tennis-point.com','firebasestorage.googleapis.com', 'tenishollywood.com.ar','www.shutterstock.com','e00-marca.uecdn.es','cdn-magento2-media.head.com']
+    remotePatterns: [
+      { hostname: 'racketsandrunners.ca' },
+      { hostname: 'www.tennis-point.es' },
+      { hostname: 'acdn.mitiendanube.com' },
+      { hostname: 'http2.mlstatic.com' },
+      { hostname: 'acdn.mitiendanube.com' },
+      { hostname: 'www.digitalsport.com.ar' },
+      { hostname: 'http2.mlstatic.com' },
+      { hostname: 'http2.mlstatic.com' },
+      { hostname: 'encrypted-tbn0.gstatic.com' },
+      { hostname: 'www.tennis-point.com' },
+      { hostname: 'firebasestorage.googleapis.com' },
+      { hostname: 'tenishollywood.com.ar' },
+      { hostname: 'www.shutterstock.com' },
+      { hostname: 'e00-marca.uecdn.es' },
+      { hostname: 'cdn-magento2-media.head.com' },
+      { hostname: 'dcdn.mitiendanube.com' },
+      { hostname: 'd28hi93gr697ol.cloudfront.net' }
+    ]
   },
   webpack: (config) => {
     config.resolve.alias['@'] = path.resolve(__dirname);

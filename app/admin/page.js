@@ -18,8 +18,13 @@ const Admin = () => {
                 <Link href="/admin/create">
                     <Boton>Agregar nuevo producto</Boton>
                 </Link>
+            
+            <Link href="/orders">
+                <Boton>Ver órdenes de compra</Boton>
+                </Link>
             </div>
 
+            <p className="text-2xl pb-4 text-red-600 align-top">Productos:</p>
             <ProductsTable />
         </div>
     )

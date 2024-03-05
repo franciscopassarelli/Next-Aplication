@@ -2,7 +2,7 @@
 import './globals.css'
 import Header from './components/ui/Header'
 import { CartProvider } from './components/Context/CartContext'
-import { AuthProvider } from './components/Context/AuthContext'
+import { AuthProvider } from './components/context/AuthContext'
 
 
 export const metadata = {

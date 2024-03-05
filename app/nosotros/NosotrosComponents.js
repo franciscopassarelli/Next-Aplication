@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react";
 import Footer from "../components/ui/Footer";
-
+import Image from "next/image";
 
 export default function NosotrosComponent() {
   const [imagenActual, setImagenActual] = useState(0);
@@ -18,7 +18,7 @@ export default function NosotrosComponent() {
     }, 2000);
 
     return () => clearInterval(intervalId);
-  }, [imagenActual]);
+  }, [imagenActual, imagenes.length]);
  
   
 
@@ -50,12 +50,8 @@ export default function NosotrosComponent() {
 
           <div className="flex-shrink-0 w-1/2 p-4">
             <div className="w-full h-auto rounded-md overflow-hidden image-container">
-              <img
-                src={imagenes[imagenActual]}
-                alt="Zapatos de Tenis"
-                className="w-full h-full object-cover"
+            <Image src={imagenes[imagenActual]} alt="Zapatos de Tenis" width={200} height={200} className="w-full h-full object-cover" />
               
-              />
             </div>
           </div>
           

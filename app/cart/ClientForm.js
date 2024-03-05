@@ -6,6 +6,31 @@ import { db } from "../firebase/config"
 import { setDoc, doc, Timestamp } from "firebase/firestore"
 
 const createOrder = async (values, items) => {
+
+
+
+      const docsPromises = items.map((slug) => {
+        const docRef = doc(db, "productos", slug)
+        return getDoc(docRef)
+     })
+
+
+     const docs = await Promise.all(docsPromises)   
+     const batch = writeBatch(db)
+
+    const outOfStock = []
+
+     docs.forEach(doc => {
+        const { inStock } = doc.data()
+        const itemInCart = items.find(item => item.slug === doc.id)
+         if (itemInCart.quantity >= inStock ) {
+             batch.update(doc.ref, {inStock: inStock - itemInCart.quantity })
+        } else {
+            outOfStock.push(itemInCart)
+         }
+     })
+
+     if (outOfStock.length > 0) return outOfStock
     const order = {
         client: values,
         items: items.map(item => ({
@@ -21,7 +46,7 @@ const createOrder = async (values, items) => {
     const orderRef = doc(db, "ordenes", String(docId))
     await setDoc(orderRef, order)
     return docId
-}
+ }
 
 const ClientForm = () => {
     const { cart } = useCartContext()
@@ -42,6 +67,8 @@ const ClientForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         await createOrder(values, cart)
+        emptyCart()
+        router.push("/thanks")
     }
 
 

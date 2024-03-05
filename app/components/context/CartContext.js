@@ -7,19 +7,13 @@ export const useCartContext = () => useContext(CartContext)
 export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([])
 
-
-
-
-
+      
 
     const removeFromCart = (slug) => {
         // Implementa la lógica para eliminar el producto del carrito
         const updatedCart = cart.filter((item) => item.slug !== slug);
         setCart(updatedCart);
       };
-
-
-
 
     // Agrega productos al carrito
     const addToCart = (item) => {

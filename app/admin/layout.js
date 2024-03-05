@@ -1,6 +1,6 @@
 "use client"
 
-import { useAuthContext } from "../components/Context/AuthContext"
+import { useAuthContext } from "../components/context/AuthContext"
 const AdminLayout = ({children, login}) => {
 const {user} = useAuthContext()
 

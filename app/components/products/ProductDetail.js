@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import GoBack from "../ui/GoBack";
 import QtySelector from "./QtySelector";
