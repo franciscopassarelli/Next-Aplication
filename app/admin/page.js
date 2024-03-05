@@ -1,9 +1,26 @@
 import ProductsTable from "../components/admin/ProductsTable"
-const Admin = () =>{
-    return(
+import Boton from "../components/ui/Boton"
+import Link from "next/link"
+import LogoutButton from "../components/admin/LogoutButton"
+
+const Admin = () => {
+    return (
         <div className="container m-auto mt-6">
-            <h2 className="text-2xl my-10 border-b pb-4">Panel Administración</h2>
-            <ProductsTable/>
+
+            <div className="grid grid-cols-4 gap-4 border-b mb-6">
+                <h2 className="text-2xl pb-4 text-red-600 align-top">Panel de administración</h2>
+                <div className="col-start-5" >
+                    <LogoutButton />
+                </div>
+            </div>
+
+            <div className="mb-6">
+                <Link href="/admin/create">
+                    <Boton>Agregar nuevo producto</Boton>
+                </Link>
+            </div>
+
+            <ProductsTable />
         </div>
     )
 }

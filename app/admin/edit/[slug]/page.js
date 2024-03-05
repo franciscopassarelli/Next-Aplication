@@ -1,6 +1,4 @@
-import EditForm from "@/Components/admin/EditForm"
-
-
+import EditForm from "@/app/components/admin/EditForm"
 const EditPage = async ({ params }) => {
     const { slug } = params
     const item = await fetch(`http://localhost:3000/api/product/${slug}`, {

@@ -3,3 +3,25 @@
 @tailwind utilities;
 
 
+/* styles.css o tu archivo de estilos */
+@keyframes colorChange {
+    0% { color: #07fc9ef0; } /* Color inicial (por ejemplo, azul) */
+    50% { color: #2c22ee8f; } /* Color intermedio (por ejemplo, rojo) */
+    100% { color: #f50f0f9f; } /* Color final (vuelve al azul) */
+  }
+  
+  .color-changing-title {
+    animation: colorChange 6s infinite; 
+
+  }
+  /* styles.module.css */
+@keyframes backgroundChange {
+  0% { background: #0c1e4bf1; } 
+  20% { background: rgb(29, 29, 94);} /* Color inicial (por ejemplo, azul) */
+  50% { background: #16134dca; } /* Color intermedio (por ejemplo, rojo) */
+  100% { background:rgb(10, 22, 64); } /* Color final (vuelve al azul) */
+}
+
+.color-changing-background {
+  animation: backgroundChange 6s infinite;
+}

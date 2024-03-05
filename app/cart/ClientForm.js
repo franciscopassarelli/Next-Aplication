@@ -1,8 +1,8 @@
 "use client"
 import { useState } from "react"
-import Boton from "../Boton"
-import { useCartContext } from "../Context/CartContext"
-import { db } from "../../app/firebase/config"
+import Boton from "../components/ui/Boton"
+import { useCartContext } from "../components/Context/CartContext"
+import { db } from "../firebase/config"
 import { setDoc, doc, Timestamp } from "firebase/firestore"
 
 const createOrder = async (values, items) => {
@@ -86,3 +86,10 @@ const ClientForm = () => {
 }
 
 export default ClientForm
+
+
+
+
+
+
+

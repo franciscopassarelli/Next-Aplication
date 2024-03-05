@@ -1,23 +1,29 @@
-"use client"
-
-import CartItem from "@/components/cart/CartItem"
-import { useCartContext } from "@/components/context/CartContext"
+import CartItem from './CartItem';
+import Link from 'next/link';
+import { useCartContext } from "../components/Context/CartContext"
+// Resto de las importaciones
 
 const CartPage = () => {
-    const {cart} = useCartContext()
+    const { cart, totalPrice } = useCartContext();
 
+    return (
+        <div className="bg-gray-100 p-6 rounded-lg shadow-md">
+            <ul className="space-y-4">
+                {cart.map((item) =>
+                    <CartItem
+                        item={item}
+                        key={item.slug} 
+                    />
+                )}
+            </ul>
 
-return (
-    <main className="container m-auto">
-    <h2 className="text-2xl my-10 border-b pb-4">Tu compra</h2>
-    <ul>
-          {
-            cart.map((item)=> <CartItem item={item} key={item.slug}/>)
-          }
-              
-    </ul>
-
-    </main>
-)
+            <p className="text-2xl my-4 border-b pb-4 text-right">Total: ${totalPrice()}</p>
+        
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                    Proceder al Pago
+                </button>
+        </div>
+    );
 }
-export default CartPage
+
+export default CartPage;

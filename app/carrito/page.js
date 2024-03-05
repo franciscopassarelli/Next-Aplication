@@ -1,25 +1,31 @@
 "use client"
-import { useCartContext } from "@/Components/Context/CartContext"
-import CartList from "@/Components/cart/CartList"
-import ClientForm from "@/Components/cart/ClientForm"
+import { useCartContext } from "../components/Context/CartContext"
+import CartPage from "../cart/CartPage"
+
 
 import Link from "next/link"
+import ClientForm from "../cart/ClientForm"
 
 const Carrito = () => {
     const { cart } = useCartContext()
 
     return (
-        <div className="container m-auto">
-            <h2 className="text-2xl my-10 border-b pb-4">🛒 Tu compra</h2>
+        <div className="container mx-auto my-8 p-4 bg-gray rounded-lg shadow-md">
+            <h2 className="text-3xl font-bold mb-6 text-gray-800">👜 Tu compra</h2>
             {cart != "" ?
                 <div>
-                    <CartList />
-                    <ClientForm />
+                    <CartPage />
+                    <ClientForm/>
                 </div>
                 :
-                <Link href={"/productos/todos"} className="ml-8 text-2xl text-bold text-red-400">
-                    Tu carrito de compras está vacío, 💪🏻 comienza a comprar...
+                <div className="text-center bg-gray">
+                <p className="text-xl text-gray-600 mb-4">Tu carrito de compras está vacío</p>
+                <Link href="/productos/todos" className="text-lg text-red-500 hover:text-red-700 underline">
+                    
+                        Explora nuestros productos
+            
                 </Link>
+            </div>
             }
             <hr className="mt-6" />
         </div>

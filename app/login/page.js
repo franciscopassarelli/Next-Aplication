@@ -4,9 +4,6 @@ const Login = () => {
     return (
         <>
             <div className="container m-auto">
-                <h1 className="text-2xl text-bold">Inicie sesión para comenzar ...</h1>
-                <hr />
-
                 <div className="py-16">
                     <div className="border p-2 flex bg-white rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
                         <div className="lg:block lg:w-1/2 mt-2 mb-2 ml-2 mr-6">

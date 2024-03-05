@@ -1,6 +1,6 @@
 "use client"
 
-import Boton from "@/Components/Boton"
+import Boton from "../components/ui/Boton"
 import { useEffect } from "react"
 
 export default function Error({error, reset}) {

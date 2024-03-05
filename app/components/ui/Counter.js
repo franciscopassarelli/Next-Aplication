@@ -1,6 +1,5 @@
 'use client'
 import Boton from "./Boton"
-
 const Counter = ({counter, setCounter, max}) =>{
 
   const increase = () => counter < max && setCounter(counter + 1)

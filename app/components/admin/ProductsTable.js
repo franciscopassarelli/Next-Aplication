@@ -41,9 +41,15 @@ const items = await fetch (`http://localhost:3000/api/productos/todos`,{
                             <td className="p-2 text-left">{item.slug}</td>
                             <td className="p-2 truncate max-w-prose">{item.description}</td>
                             <td className="p-2">
-                                <Link href={`/admin/edit/${item.slug}`} className="rounded bg-red-400 p-2 text-white">
+                                <Link href={`/admin/edit/${item.slug}`} className="rounded bg-blue-400 p-2 text-white hover:bg-blue-600">
                                     Editar
                                 </Link>
+                                <Link href={`/admin/delete/${item.slug}`}className="rounded bg-red-400 p-2 text-white hover:bg-red-600">
+                  
+                    X
+                  
+                </Link>
+                            
                             </td>
                         </tr>
                     ))}
@@ -54,6 +60,3 @@ const items = await fetch (`http://localhost:3000/api/productos/todos`,{
 }
 
 export default ProductsTable
-
-
- 

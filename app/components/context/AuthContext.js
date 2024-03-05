@@ -38,19 +38,19 @@ export const AuthProvider = ({ children }) => {
         onAuthStateChanged(auth, async (user) => {
 
             if (user) {
-                const docRef = doc(db, "roles", user.uid)
-                const userDoc = await getDoc(docRef)
+                // const docRef = doc(db, "roles", user.uid)
+                // const userDoc = await getDoc(docRef)
 
-                if (userDoc.data()?.rol === "admin") {
+                // if (userDoc.data()?.rol === "admin") {
                     setUser({
                         logged: true,
                         email: user.email,
                         uid: user.uid
                     })
-                } else {
-                    router.push("/unauthorized")
-                    logOut()
-                }
+                // } else {
+                //     router.push("/unauthorized")
+                //     logOut()
+                // }
             } else {
                 setUser({
                     logged: false,
@@ -60,7 +60,7 @@ export const AuthProvider = ({ children }) => {
             }
 
         })
-    })
+    }, [])
 
 
     return (

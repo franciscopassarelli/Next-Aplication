@@ -38,6 +38,7 @@ const Productos = ({ params }) => {
         </Suspense>
       </div>
     </div>
+  
   );
 };
 
