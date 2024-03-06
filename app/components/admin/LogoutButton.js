@@ -1,5 +1,5 @@
 "use client"
-import { useAuthContext } from "../context/AuthContext";
+import { useAuthContext } from "../Context/AuthContext";
 import Boton from "../ui/Boton";
 
 const LogoutButton = () => {
