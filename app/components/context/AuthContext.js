@@ -76,7 +76,6 @@ export const AuthProvider = ({ children }) => {
         </AuthContext.Provider>
     )
 }
-
 /*
 "use client"
 import { createContext, useContext, useEffect, useState } from "react"

@@ -3,7 +3,7 @@ import GoBack from "../ui/GoBack";
 import QtySelector from "./QtySelector";
 
 const ProductDetail = async ({ slug }) => {
-  const item = await fetch(`http://localhost:3000/api/product/${slug}`)
+  const item = await fetch(`${process.env.API_URL}/api/product/${slug}`)
     .then((res) => {
       if (!res.ok) {
         throw new Error(`HTTP error! Status: ${res.status}`);

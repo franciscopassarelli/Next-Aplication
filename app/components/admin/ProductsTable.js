@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 const ProductsTable = async () => {
-const items = await fetch (`http://localhost:3000/api/productos/todos`,{
+const items = await fetch (`${process.env.API_URL}/api/productos/todos`,{
     cache:'no-store',
     }).then(r => r.json())
 
