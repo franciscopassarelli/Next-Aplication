@@ -2,7 +2,7 @@ import ProductCard from "./ProductCard";
 
 const ProductsList = async ({ categoria }) => {
     try {
-        const response = await fetch(`http://localhost:3000/api/productos/${categoria}`, {
+        const response = await fetch(`${process.env.API_URL}/api/productos/${categoria}`, {
             cache: "no-store",
             next: { tags: ["productos"] },
             headers: { 'Content-Type': 'application/json' }  
