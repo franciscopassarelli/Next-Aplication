@@ -22,6 +22,10 @@ const Admin = () => {
             <Link href="/orders">
                 <Boton>Ver órdenes de compra</Boton>
                 </Link>
+
+                <Link href="/clientmessage">
+                    <Boton>Ver mensajes recibidos</Boton>
+                </Link>
             </div>
 
             <p className="text-2xl pb-4 text-red-600 align-top">Productos:</p>
