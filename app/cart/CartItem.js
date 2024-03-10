@@ -1,5 +1,5 @@
 import React from "react";
-import { useCartContext } from "../components/Context/CartContext";
+import { useCartContext } from "../components/context/CartContext";
 import Image from "next/image";
 const CartItem = ({ item }) => {
   const { addToCart, removeFromCart, isInCart } = useCartContext();
@@ -21,8 +21,8 @@ const CartItem = ({ item }) => {
           <Image
             src={item.image}
             alt={item.title}
-            width={80}
-            height={80}
+            width={160}
+            height={160}
           />
         </div>
         <div className="col-span-2">{item.title}</div>

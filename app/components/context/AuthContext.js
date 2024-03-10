@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useState } from "react"
 
 import { auth, provider, db } from "@/app/firebase/config"
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, signInWithPopup } from "firebase/auth"
-import { doc, getDoc } from "firebase/firestore"
+import { doc,getDoc } from "firebase/firestore"
 import { useRouter } from "next/navigation"
 
 const AuthContext = createContext()

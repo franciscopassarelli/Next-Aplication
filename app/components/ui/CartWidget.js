@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link"
-import { useCartContext } from "../Context/CartContext"
+import { useCartContext } from "../context/CartContext"
 
 const CartWidget = () => {
     const { totalQty } = useCartContext()

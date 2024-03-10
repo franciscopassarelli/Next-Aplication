@@ -24,8 +24,8 @@ const ProductDetail = async ({ slug }) => {
           <Image
             src={item.image}
             alt={item.title}
-            width={220}
-            height={220}
+            width={350}
+            height={420}
             className="rounded-lg"
           />
         </div>

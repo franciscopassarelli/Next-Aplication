@@ -1,5 +1,5 @@
 "use client"
-import { useCartContext } from "../components/Context/CartContext"
+import { useCartContext } from "../components/context/CartContext"
 import CartPage from "../cart/CartPage"
 
 

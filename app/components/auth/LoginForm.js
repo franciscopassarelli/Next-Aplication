@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Boton from "../ui/Boton";
-import { useAuthContext } from "../Context/AuthContext";
+import { useAuthContext } from "../context/AuthContext";
 
 const LoginForm = () => {
     const { registerUser, loginUser, googleLogin } = useAuthContext();

@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react"
 import Boton from "../components/ui/Boton"
-import { useCartContext } from "../components/Context/CartContext"
+import { useCartContext } from "../components/context/CartContext"
 import { db } from "../firebase/config"
 import { setDoc, doc, Timestamp } from "firebase/firestore"
 
