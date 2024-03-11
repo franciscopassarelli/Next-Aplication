@@ -1,6 +1,6 @@
 import LogoutButton from "../components/admin/LogoutButton";
 //firebase
-import { db } from "../firebase/config"
+import { db } from "../firebase/config";
 import { collection, getDocs } from "firebase/firestore";
 
 const getMessages = async () => {

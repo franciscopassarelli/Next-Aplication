@@ -6,7 +6,7 @@ import { AuthProvider } from './components/context/AuthContext'
 
 
 export const metadata = {
-  title: 'Create Next App 1',
+  title: 'FrannTenis',
   description: 'Esto es FrannTenis',
 }
 
