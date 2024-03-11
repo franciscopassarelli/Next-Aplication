@@ -6,7 +6,7 @@ import Link from "next/link"
 import { db } from "@/app/firebase/config"
 import { doc, deleteDoc } from "firebase/firestore"
 
-const DeleteProduct = async ({ item }) => {
+async function DeleteProduct({ item }) {
 
     try {
         const docRef = doc(db, "productos", item.slug)
