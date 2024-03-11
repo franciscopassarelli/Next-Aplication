@@ -44,7 +44,7 @@ const items = await fetch (`${process.env.API_URL}/api/productos/todos`,{
                                 <Link href={`/admin/edit/${item.slug}`} className="rounded bg-blue-400 p-2 text-white hover:bg-blue-600">
                                     Editar
                                 </Link>
-                                <Link href={`/admin/delete/${item.slug}`}className="rounded bg-red-400 p-2 text-white hover:bg-red-600">
+                                <Link href={`/admin/delete/${item.slug}`}className="rounded bg-red-600 p-2 text-white hover:bg-red-600">
                   
                     X
                   

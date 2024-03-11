@@ -1,4 +1,4 @@
-
+"use client"
 import Boton from "../ui/Boton"
 import Link from "next/link"
 
