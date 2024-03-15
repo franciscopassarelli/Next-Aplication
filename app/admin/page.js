@@ -6,30 +6,33 @@ import LogoutButton from "../components/admin/LogoutButton"
 const Admin = () => {
     return (
         <div className="container m-auto mt-6">
-
-            <div className="grid grid-cols-4 gap-4 border-b mb-6">
-                <h2 className="text-2xl pb-4 text-red-600 align-top">Panel de administración</h2>
-                <div className="col-start-5" >
-                    <LogoutButton />
+            <div className="border border-gray-300 rounded p-4"> {/* Agregamos bordes y relleno */}
+                <div className="grid grid-cols-4 gap-4 border-b mb-6">
+                    <h2 className="text-2xl pb-4 text-red-600 align-top">Panel de administración</h2>
+                    <div className="col-start-5" >
+                        <LogoutButton />
+                    </div>
                 </div>
+
+                <div className="mb-6 flex justify-between"> {/* Utilizamos flexbox para alinear los botones */}
+                    <Link href="/admin/create">
+                        <Boton>Agregar nuevo producto</Boton>
+                    </Link>
+                
+                    <div className="ml-auto"> {/* Movemos los botones hacia la derecha */}
+                        <Link href="/orders">
+                            <Boton>Ver órdenes de compra</Boton>
+                        </Link>
+
+                        <Link href="/mensajes">
+                            <Boton>Ver mensajes recibidos</Boton>
+                        </Link>
+                    </div>
+                </div>
+
+                <p className="text-2xl pb-4 text-red-600 align-top">Productos:</p>
+                <ProductsTable />
             </div>
-
-            <div className="mb-6">
-                <Link href="/admin/create">
-                    <Boton>Agregar nuevo producto</Boton>
-                </Link>
-            
-            <Link href="/orders">
-                <Boton>Ver órdenes de compra</Boton>
-                </Link>
-
-                <Link href="/clientmessage">
-                    <Boton>Ver mensajes recibidos</Boton>
-                </Link>
-            </div>
-
-            <p className="text-2xl pb-4 text-red-600 align-top">Productos:</p>
-            <ProductsTable />
         </div>
     )
 }

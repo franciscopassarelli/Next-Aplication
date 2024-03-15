@@ -57,6 +57,7 @@ export default function NosotrosComponent() {
           
         </div>
       </div>
+      
       <style jsx>{`
   .bg-gradient-to-b {
     /* Puedes ajustar el estilo del fondo según tus necesidades */
@@ -69,6 +70,8 @@ export default function NosotrosComponent() {
 
   /* Resto de estilos... */
 `}</style>
+
+<hr/>
 
       <Footer />
     </>

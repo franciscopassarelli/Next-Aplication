@@ -1,5 +1,4 @@
 "use client"
-
 import { useState } from "react";
 import Boton from "../ui/Boton";
 import { useAuthContext } from "../context/AuthContext";
@@ -10,6 +9,7 @@ const LoginForm = () => {
         email: "",
         password: "",
     });
+    const [isRegistered, setIsRegistered] = useState(false);
 
     const handleChange = (e) => {
         setValues({
@@ -18,45 +18,53 @@ const LoginForm = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Agregar lógica de envío de formulario si es necesario
+        
+        try {
+            await loginUser(values);
+            setIsRegistered(true);
+            setValues({
+                email: "",
+                password: "",
+            });
+        } catch (error) {
+            console.error("Error al iniciar sesión:", error);
+        }
     };
 
     return (
-        <div className="fixed w-screen h-screen inset-0 z-10 flex justify-center items-center bg-blue-400 bg-opacity-25">
-            <form
-                onSubmit={handleSubmit}
-                className="bg-white py-8 px-6 rounded-xl max-w-md w-full"
-            >
-                <h2 className="text-2xl text-red-600 mb-6">Iniciar sesión</h2>
-                <input
-                    type="email"
-                    value={values.email}
-                    required
-                    placeholder="Tu email"
-                    className="input-field"
-                    name="email"
-                    onChange={handleChange}
-                />
-
-                <input
-                    type="password"
-                    value={values.password}
-                    required
-                    placeholder="Tu password"
-                    className="input-field"
-                    name="password"
-                    onChange={handleChange}
-                />
-
-                <div className="grid grid-cols-3 gap-4 mt-6">
-                    <Boton onClick={() => loginUser(values)}>Loguearme</Boton>
-
-                    <Boton onClick={googleLogin}>Loguearme con Google</Boton>
-
-                    <Boton onClick={() => registerUser(values)}>Registrarme</Boton>
+        <div className="w-full max-w-xl">
+            <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <h2 className="text-2xl text-gray-600 mb-6 text-center font-bold animate-pulse">Iniciar sesión</h2>
+                <div className="mb-4">
+                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        type="email"
+                        value={values.email}
+                        required
+                        placeholder="Tu email"
+                        name="email"
+                        onChange={handleChange}
+                    />
                 </div>
+
+                <div className="mb-6">
+                    <input  className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                        type="password"
+                        value={values.password}
+                        required
+                        placeholder="Tu password"
+                        name="password"
+                        onChange={handleChange}
+                    />
+                </div>
+
+                <div className="flex items-center justify-between">
+                    <Boton onClick={handleSubmit} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Loguearme</Boton>
+                    <Boton onClick={googleLogin} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Loguearme con Google</Boton>
+                    <Boton onClick={() => registerUser(values)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Registrarme</Boton>
+                </div>
+                {isRegistered ? <p>Usuario registrado correctamente</p> : null}
             </form>
         </div>
     );

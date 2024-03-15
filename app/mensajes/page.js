@@ -24,10 +24,10 @@ const Mensajes = async () => {
 
             <ul>
                 {
-                    msg.map(msg => (
-                        <li key={msg.id}>
-                            <p className="text-xl">Email: <b>{msg.email}</b></p>
-                            <p className="text-x">Mensaje: {msg.text}</p>
+                    msg.map(message => (
+                        <li key={message.id}>
+                            <p className="text-xl">Email: <b>{message.email}</b></p>
+                            <p className="text-x">Mensaje: {message.text}</p>
                             <br />
                         </li>
                     ))

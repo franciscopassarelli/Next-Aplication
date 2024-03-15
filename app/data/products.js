@@ -59,7 +59,8 @@ export const mockData = [
 
     {
         title:`Head revolt pro`,
-        description:`zapatillas de tenis Head`,
+        description:`Descripción
+        Las zapatillas Head Hombre Tokio Low Indoor Basquet Sport Town son el calzado perfecto para los amantes del básquet y el tenis. Con su diseño urbano y estilo moderno, estas zapatillas son ideales para lucir en cualquier ocasión.`,
         inStock:20,
         price:111700,
         slug:'revolt-pro',

@@ -4,6 +4,7 @@ const NextConfig = {
   images: {
     remotePatterns: [
       { hostname: 'racketsandrunners.ca' },
+      { hostname: 'www.mistertennis.com'},
       { hostname: 'www.tennis-point.es' },
       { hostname: 'acdn.mitiendanube.com' },
       { hostname: 'http2.mlstatic.com' },

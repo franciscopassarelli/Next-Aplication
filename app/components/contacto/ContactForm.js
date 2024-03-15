@@ -1,23 +1,40 @@
 "use client"
 import { useState } from "react"
-import Boton from "../ui/Boton"
+import Boton from "../ui/Boton";
+import { useRouter } from "next/navigation";
 
-const ContactForm = () =>{
+// Firebase
+import { db } from "@/app/firebase/config";
+import { setDoc, doc, Timestamp, getDoc, writeBatch } from "firebase/firestore";
+
+ const ContactForm= () => {
+    const router = useRouter()
     const [values, setValues] = useState({
-        email:"",
-        text:""
+        email: "",
+        text: ""
     })
 
-    const handleChange = (e) =>{
+    const handleChange = (e) => {
         setValues({
             ...values,
             [e.target.name]: e.target.value
         })
     }
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log(values)
+        let url = "api/contacto"
+
+        await fetch(url, {
+            method: "POST",
+            body: JSON.stringify(values)
+        })
+
+        const docId = Timestamp.fromDate(new Date()).toMillis()
+        const orderRef = doc(db, "mensajes", String(docId))
+        await setDoc(orderRef, values)
+
+        router.push("/thankscontact")
     }
     
 
@@ -25,10 +42,11 @@ const ContactForm = () =>{
     <div className="w-full max-w-md mx-auto">
     <form onSubmit={handleSubmit} className="bg-white bg-opacity-75 shadow-md rounded px-8 pt-6 pb-8 mb-4">
       <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+        <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
           Email
         </label>
         <input
+        id="email"
           type="email"
           required
           placeholder="Tu email"
@@ -37,14 +55,15 @@ const ContactForm = () =>{
           onChange={handleChange}
         />
   
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="message">
+        <label htmlFor="message" className="block text-gray-700 text-sm font-bold mb-2">
           Dejanos un mensaje
         </label>
         <textarea
-          required
+          id="message"
+          rows="4"
           placeholder="Déjanos tu mensaje"
           className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-          name="message"
+          name="text"
           onChange={handleChange}
         />
   

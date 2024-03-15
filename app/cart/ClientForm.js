@@ -1,9 +1,11 @@
+
 "use client"
 import { useState } from "react"
 import Boton from "../components/ui/Boton"
 import { useCartContext } from "../components/context/CartContext"
 import { db } from "../firebase/config"
 import { setDoc, doc, Timestamp } from "firebase/firestore"
+import Link from "next/link"
 
 const createOrder = async (values, items) => {
 
@@ -68,7 +70,7 @@ const ClientForm = () => {
         e.preventDefault()
         await createOrder(values, cart)
         emptyCart()
-        router.push("/thanks")
+    
     }
 
 
@@ -103,17 +105,17 @@ const ClientForm = () => {
                     name="email"
                     onChange={handleChange}
                 />
-
+<Link href={'/thanks'}>
                 <Boton type="submit">
                     Terminar mi compra
                 </Boton>
+                </Link>
             </form>
         </div>
     )
 }
 
 export default ClientForm
-
 
 
 
