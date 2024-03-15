@@ -16,7 +16,7 @@ const ThanksContact = () => {
                     </h3>
                     <Link href="/">
                         <Boton className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                            Volver a la página principal
+                            Volver a la página principal.
                         </Boton>
                     </Link>
                 </div>
