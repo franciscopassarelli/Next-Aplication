@@ -14,25 +14,22 @@ const Mensajes = async () => {
     const msg = await getMessages()
 
     return (
-        <div className="container m-auto mt-6">
-            <div className="grid justify-items-end">
+        <div className="container mx-auto mt-6">
+            <div className="flex justify-end mb-6" style={{ marginRight: '10px' }}>
                 <LogoutButton />
             </div>
-            <h2 className="text-3xl my-10 border-b pb-4 text-blue-600">
+            <h2 className="text-3xl text-gray-600 mb-6 text-center font-bold animate-pulse">
                 Mensajes recibidos
             </h2>
 
-            <ul>
-                {
-                    msg.map(message => (
-                        <li key={message.id}>
-                            <p className="text-xl">Email: <b>{message.email}</b></p>
-                            <p className="text-x">Mensaje: {message.text}</p>
-                            <br />
-                        </li>
-                    ))
-                }
-            </ul>
+            <div className="grid grid-cols-1 gap-4">
+                {msg.map(message => (
+                    <div key={message.id} className="bg-gray-100 p-4 rounded-lg">
+                        <p className="text-lg"><span className="font-bold">Email:</span> {message.email}</p>
+                        <p className="text-lg"><span className="font-bold">Mensaje:</span> {message.text}</p>
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }

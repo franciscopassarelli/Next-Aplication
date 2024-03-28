@@ -5,7 +5,7 @@ import CartWidget from './CartWidget';
 const links = [
   { label: 'Inicio', href: '/' },
   { label: 'Nosotros', href: '/nosotros' },
-  { label: 'Contacto', href: '/Contacto' },
+  { label: 'Contacto', href: '/contacto' },
   { label: 'Productos', href: '/productos/todos' },
   { label: 'admin', href: '/admin'}
 ];

@@ -2,13 +2,13 @@ import Image from "next/image"
 import Link from "next/link"
 
 const ProductsTable = async () => {
-const items = await fetch (`${process.env.API_URL}/api/productos/todos`,{
-    cache:'no-store',
+    const items = await fetch (`${process.env.API_URL}/api/productos/todos`,{
+        cache:'no-store',
     }).then(r => r.json())
 
     return (
         <div className="overflow-x-auto">
-            <table className="w-full text-xs text-left text-black-600">
+            <table className="w-full text-xs text-left text-white bg-gray-800">
                 <thead className="text-xl text-red-600 border-b">
                     <tr>
                         <th scope="col" className="px-3 py-2 text-center"></th>
@@ -32,7 +32,6 @@ const items = await fetch (`${process.env.API_URL}/api/productos/todos`,{
                                     width={80}
                                     height={60}
                                 />
-
                             </td>
                             <td className="p-2 truncate max-w-prose">{item.title}</td>
                             <td className="p-2 text-center">u$s {item.price}</td>
@@ -40,16 +39,17 @@ const items = await fetch (`${process.env.API_URL}/api/productos/todos`,{
                             <td className="p-2 text-center">{item.type}</td>
                             <td className="p-2 text-left">{item.slug}</td>
                             <td className="p-2 truncate max-w-prose">{item.description}</td>
-                            <td className="p-2">
-                                <Link href={`/admin/edit/${item.slug}`} className="rounded bg-blue-400 p-2 text-white hover:bg-blue-600">
-                                    Editar
+                            <td className="p-2 space-x-2">
+                                <Link href={`/admin/edit/${item.slug}`}>
+                                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                        Editar
+                                    </button>
                                 </Link>
-                                <Link href={`/admin/delete/${item.slug}`}className="rounded bg-red-600 p-2 text-white hover:bg-red-600">
-                  
-                    X
-                  
-                </Link>
-                            
+                                <Link href={`/admin/delete/${item.slug}`}>
+                                    <button className="bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-4 rounded">
+                                        Eliminar
+                                    </button>
+                                </Link>
                             </td>
                         </tr>
                     ))}

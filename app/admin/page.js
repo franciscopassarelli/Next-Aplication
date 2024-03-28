@@ -5,32 +5,38 @@ import LogoutButton from "../components/admin/LogoutButton"
 
 const Admin = () => {
     return (
-        <div className="container m-auto mt-6">
-            <div className="border border-gray-300 rounded p-4"> {/* Agregamos bordes y relleno */}
+        <div className="container m-auto mt-6 bg-gray-900 text-white"> {/* Cambiamos el color del panel a oscuro y el color del texto a blanco */}
+            <div className="border border-gray-600 rounded p-4"> {/* Cambiamos el color del borde a un tono más oscuro */}
                 <div className="grid grid-cols-4 gap-4 border-b mb-6">
-                    <h2 className="text-2xl pb-4 text-red-600 align-top">Panel de administración</h2>
-                    <div className="col-start-5" >
+                    <h2 className="text-3xl text-gray-300 mb-6 font-bold animate-pulse align-top">Panel de administración</h2> {/* Cambiamos el color del título a rojo */}
+                    <div className="col-start-5">
                         <LogoutButton />
                     </div>
                 </div>
 
-                <div className="mb-6 flex justify-between"> {/* Utilizamos flexbox para alinear los botones */}
+                <div className="mb-6 flex justify-between items-center"> {/* Utilizamos flexbox para alinear los botones */}
                     <Link href="/admin/create">
-                        <Boton>Agregar nuevo producto</Boton>
+                        <Boton className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-3 rounded">
+                            Agregar nuevo producto
+                        </Boton>
                     </Link>
                 
-                    <div className="ml-auto"> {/* Movemos los botones hacia la derecha */}
+                    <div className="space-x-3"> {/* Agregamos espacio entre los botones */}
                         <Link href="/orders">
-                            <Boton>Ver órdenes de compra</Boton>
+                            <Boton className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded">
+                                Ver órdenes
+                            </Boton>
                         </Link>
 
                         <Link href="/mensajes">
-                            <Boton>Ver mensajes recibidos</Boton>
+                            <Boton className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-3 rounded">
+                                Ver mensajes
+                            </Boton>
                         </Link>
                     </div>
                 </div>
 
-                <p className="text-2xl pb-4 text-red-600 align-top">Productos:</p>
+                <p className="text-2xl pb-4 text-red-400 align-top">Productos:</p> {/* Cambiamos el color del texto a rojo */}
                 <ProductsTable />
             </div>
         </div>
