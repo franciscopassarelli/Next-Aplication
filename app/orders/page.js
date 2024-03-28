@@ -26,9 +26,7 @@ const Orders = async () => {
                     orders.map(order => (
                         <li key={order.id}>
                             <p className="text-xl">Comprador: <b>{order.client.nombre}</b></p>
-                            <p className="text-xl">Dirección: {order.client.direccion}</p>
-                            <p className="text-xl">Email: {order.client.email}</p>
-                            <p className="text-xl mb-2">Fecha: {order.date.slice(0, 10)}</p>
+                            <p className="text-xl mb-2">Fecha: {new Date(order.date).toLocaleString()}</p>
                             <p>Productos:</p>
                             <ul className="border-b mb-2 pb-2">
                                 {order.items.map((item) => (
@@ -44,4 +42,4 @@ const Orders = async () => {
     )
 }
 
-export default Orders
+export default Orders;
