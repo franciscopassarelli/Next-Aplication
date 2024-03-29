@@ -1,19 +1,19 @@
-"use client"
+import Boton from "../components/ui/Boton";
+import { useEffect } from "react";
 
-import Boton from "../components/ui/Boton"
-import { useEffect } from "react"
-
-export default function Error({error, reset}) {
+export default function Error({ error, reset }) {
 
     useEffect(() => {
-        console.log(error)
-    }, [error])
+        console.log(error);
+    }, [error]);
 
     return (
-        <div className="container m-auto mt-6">
-            <h1 className="text-2xl">Algo no salió bien</h1> 
+        <div className="container mx-auto mt-6 px-4 sm:px-0">
+            <h1 className="text-2xl text-center mb-6">Algo no salió bien</h1> 
             <hr className="my-6" />
-            <Boton onClick={reset}>Intentar nuevamente</Boton>
+            <div className="flex justify-center">
+                <Boton onClick={reset}>Intentar nuevamente</Boton>
+            </div>
         </div>
-    )
+    );
 }

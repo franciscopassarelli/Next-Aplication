@@ -1,6 +1,5 @@
 // ContactoLayout.js
 import Footer from "../components/ui/Footer";
-import ContactForm from "../components/contacto/ContactForm";
 const ContactoLayout = ({ children }) => {
   return (
     <div className="bg-gradient-to-r from-sky-800 to-gray-800 min-h-screen flex flex-col color-changing-background">

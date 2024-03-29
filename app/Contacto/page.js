@@ -1,6 +1,6 @@
 "use client"
 import React from 'react';
-import ContactForm from '../components/contacto/ContactForm';
+import ContactForm from '../components/Contacto/ContactForm';
 const Contacto = () => {
   return (
     <div className="bg-blue-800 min-h-screen flex flex-col">
