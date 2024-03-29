@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { db } from "@/app/firebase/config";
 import { setDoc, doc, Timestamp, getDoc, writeBatch } from "firebase/firestore";
 
- const ContactForm= () => {
+ const Contacto= () => {
     const router = useRouter()
     const [values, setValues] = useState({
         email: "",
@@ -80,4 +80,4 @@ import { setDoc, doc, Timestamp, getDoc, writeBatch } from "firebase/firestore";
   );
 };
 
-export default ContactForm;
+export default Contacto;
