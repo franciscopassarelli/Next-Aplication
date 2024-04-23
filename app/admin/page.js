@@ -14,22 +14,22 @@ const Admin = () => {
                     </div>
                 </div>
 
-                <div className="mb-6 flex justify-between items-center"> {/* Utilizamos flexbox para alinear los botones */}
+                <div className="mb-6 flex flex-col md:flex-row md:justify-between items-center"> {/* Utilizamos flexbox para alinear los botones */}
                     <Link href="/admin/create">
-                        <Boton className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-3 rounded">
+                        <Boton className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded-lg border border-green-600 mb-4 md:mb-0 md:mr-3">
                             Agregar nuevo producto
                         </Boton>
                     </Link>
                 
-                    <div className="space-x-3"> {/* Agregamos espacio entre los botones */}
+                    <div className="space-y-3 md:space-y-0 md:space-x-3"> {/* Agregamos espacio entre los botones */}
                         <Link href="/orders">
-                            <Boton className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded">
+                            <Boton className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-lg border border-blue-600">
                                 Ver órdenes
                             </Boton>
                         </Link>
 
                         <Link href="/mensajes">
-                            <Boton className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-3 rounded">
+                            <Boton className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1 px-2 rounded-lg border border-yellow-600">
                                 Ver mensajes
                             </Boton>
                         </Link>

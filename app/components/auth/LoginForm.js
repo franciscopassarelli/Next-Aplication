@@ -34,7 +34,7 @@ const LoginForm = () => {
     };
 
     return (
-        <div className="w-full max-w-xl">
+        <div className="w-full max-w-xl mx-auto">
             <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 <h2 className="text-2xl text-gray-600 mb-6 text-center font-bold animate-pulse">Iniciar sesión</h2>
                 <div className="mb-4">
@@ -59,12 +59,12 @@ const LoginForm = () => {
                     />
                 </div>
 
-                <div className="flex items-center justify-between">
-                    <Boton onClick={handleSubmit} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Loguearme</Boton>
-                    <Boton onClick={googleLogin} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Loguearme con Google</Boton>
-                    <Boton onClick={() => registerUser(values)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Registrarme</Boton>
+                <div className="flex flex-col md:flex-row items-center md:justify-between">
+                    <Boton onClick={handleSubmit} className="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4 md:mb-0">Loguearme</Boton>
+                    <Boton onClick={googleLogin} className="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4 md:mb-0">Loguearme con Google</Boton>
+                    <Boton onClick={() => registerUser(values)} className="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Registrarme</Boton>
                 </div>
-                {isRegistered ? <p>Usuario registrado correctamente</p> : null}
+                {isRegistered ? <p className="text-center mt-4">Usuario registrado correctamente</p> : null}
             </form>
         </div>
     );
