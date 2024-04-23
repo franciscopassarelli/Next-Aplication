@@ -19,12 +19,12 @@ const Header = () => {
             <div className="flex-shrink-0">
               <Link href={'/'} passHref>
                 <div className="text-center pl-5">
-                  <p className="relative inline cursor-pointer text-3xl font-medium text-white before:bg-blue-800 before:absolute before:-bottom-1 before:block before:h-[2px] before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100">FrannTenis</p>
+                  <p className="relative inline cursor-pointer text-3xl font-medium text-white before:bg-blue-800 before:absolute before:-bottom-1 before:block before:h-[2px] before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100 md:ml-0">FrannTenis</p>
                 </div>
               </Link>
             </div>
-          <div className="hidden md:block">
-              <div className="ml-4 flex items-center space-x-4">
+            <div className="hidden md:block ml-60">
+              <div className="ml-60 flex items-center space-x-4">
                 <Link href="/" className="text-white hover:bg-white hover:text-black rounded-lg p-2">
                   Inicio
                 </Link>
@@ -40,7 +40,8 @@ const Header = () => {
                 <Link href="/admin" className="text-white hover:bg-white hover:text-black rounded-lg p-2">
                   Admin
                 </Link>
-                </div>
+                <CartWidget/>
+              </div>
             </div>
           </div>
           <div className="md:hidden flex items-center">
@@ -75,6 +76,7 @@ const Header = () => {
               <Link href="/admin" className="text-white block hover:bg-white hover:text-black rounded-lg p-2">
                 Admin
               </Link>
+              <CartWidget/>
             </div>
           </div>
         )}
