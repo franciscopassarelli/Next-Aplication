@@ -1,6 +1,6 @@
 "use client"
 import { useState, useEffect } from "react";
-import Footer from "../components/ui/Footer";
+import Footer from "../ui/Footer";
 import Image from "next/image";
 
 export default function NosotrosComponent() {
