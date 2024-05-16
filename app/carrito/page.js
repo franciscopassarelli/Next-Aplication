@@ -5,6 +5,7 @@ import CartPage from "../cart/CartPage"
 
 import Link from "next/link"
 import ClientForm from "../cart/ClientForm"
+import GoBack from "../components/ui/GoBack"
 
 const Carrito = () => {
     const { cart } = useCartContext()
@@ -12,6 +13,7 @@ const Carrito = () => {
     return (
         <div className="container mx-auto my-8 p-4 bg-gray rounded-lg shadow-md">
             <h2 className="text-3xl font-bold mb-6 text-gray-800">👜 Tu compra</h2>
+            <GoBack/>
             {cart != "" ?
                 <div>
                     <CartPage />

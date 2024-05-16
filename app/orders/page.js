@@ -1,4 +1,5 @@
 import LogoutButton from "../components/admin/LogoutButton";
+import GoBack from "../components/ui/GoBack";
 import { db } from "../firebase/config"
 import { collection, getDocs } from "firebase/firestore";
 
@@ -20,7 +21,7 @@ const Orders = async () => {
             <h2 className="text-3xl my-10 border-b pb-4 text-red-600">
                 Órdenes
             </h2>
-
+<GoBack/>
             <ul>
                 {
                     orders.map(order => (

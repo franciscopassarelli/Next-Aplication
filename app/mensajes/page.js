@@ -1,4 +1,5 @@
 import LogoutButton from "../components/admin/LogoutButton";
+import GoBack from "../components/ui/GoBack";
 //firebase
 import { db } from "../firebase/config";
 import { collection, getDocs } from "firebase/firestore";
@@ -18,6 +19,7 @@ const Mensajes = async () => {
             <div className="flex justify-end mb-6" style={{ marginRight: '10px' }}>
                 <LogoutButton />
             </div>
+            <GoBack/>
             <h2 className="text-3xl text-gray-600 mb-6 text-center font-bold animate-pulse">
                 Mensajes recibidos
             </h2>
