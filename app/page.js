@@ -21,19 +21,19 @@ export default function Home() {
           {/* Agrega aquí tus productos de tenis (pueden ir en otro componente) */}
           {/* Ejemplo de tarjeta de presentación de producto */}
           <div className="bg-white p-6 rounded-md shadow-md">
-            <Image src="https://e00-marca.uecdn.es/assets/multimedia/imagenes/2023/01/16/16738859090606.jpg" alt="Tenis 1" className="w-full h-48 object-cover mb-4 rounded-md"  width={500} height={300} />
+            <Image src="/images/tiafoe.png" alt="Tenis 1" className="w-full h-48 object-cover mb-4 rounded-md"  width={500} height={300} />
             <h2 className="text-lg font-bold text-gray-800 mb-2">adquirí tu outfit</h2>
             <p className="text-sm text-gray-600">con qué pensas jugar? no te falte nada!!</p>
           </div>
 
           <div className="bg-white p-6 rounded-md shadow-md">
-            <Image src="https://http2.mlstatic.com/D_NQ_NP_665553-MLA50802574325_072022-O.webp" alt="Tenis 2" className="w-full h-48 object-cover mb-4 rounded-md" width={500} height={300} />
+            <Image src="/images/zapatilla.png" alt="Tenis 2" className="w-full h-48 object-cover mb-4 rounded-md" width={500} height={300} />
             <h2 className="text-lg font-bold text-gray-800 mb-2">Juga bien plantado!</h2>
             <p className="text-sm text-gray-600">Nada mejor que prevenir lesiones y estar comodo con un juego solido de pies.</p>
           </div>
 
           <div className="bg-white p-6 rounded-md shadow-md">
-            <Image src="https://cdn-magento2-media.head.com/wysiwyg/HEAD_MMO2021_3.jpg" alt="Tenis 3" className="w-full h-48 object-cover mb-4 rounded-md" width={500} height={300}/>
+            <Image src="/images/raqueta.png" alt="Tenis 3" className="w-full h-48 object-cover mb-4 rounded-md" width={500} height={300}/>
             <h2 className="text-lg font-bold text-gray-800 mb-2">Optas por las sensaciones?</h2>
             <p className="text-sm text-gray-600">Encordamos raquetas y ofrecemos las mejores cuerdas del circuito y mas...</p>
           </div>

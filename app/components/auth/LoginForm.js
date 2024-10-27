@@ -1,5 +1,7 @@
 "use client"
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import Boton from "../ui/Boton";
 import { useAuthContext } from "../context/AuthContext";
 
@@ -24,13 +26,19 @@ const LoginForm = () => {
         try {
             await loginUser(values);
             setIsRegistered(true);
+            toast.success("Inicio de sesión exitoso");
             setValues({
                 email: "",
                 password: "",
             });
         } catch (error) {
             console.error("Error al iniciar sesión:", error);
+            toast.error("Error al iniciar sesión: " + error.message);
         }
+
+       
+
+       
     };
 
     return (
@@ -66,6 +74,7 @@ const LoginForm = () => {
                 </div>
                 {isRegistered ? <p className="text-center mt-4">Usuario registrado correctamente</p> : null}
             </form>
+            <ToastContainer />
         </div>
     );
 };
