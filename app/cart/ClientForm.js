@@ -1,7 +1,4 @@
-
-
-
-
+"use client"
 import { useState } from "react";
 import Boton from "../components/ui/Boton";
 import { useRouter } from "next/navigation";
