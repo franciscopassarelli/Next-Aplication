@@ -21,9 +21,10 @@ const Admin = () => {
                         </Boton>
                     </Link>
                 
-                    <div className="space-y-3 md:space-y-0 md:space-x-3"> {/* Agregamos espacio entre los botones */}
+                    <div className="space-y-3 md:space-y-0 md:space-x-3 m-2"> {/* Agregamos espacio entre los botones */}
+                        
                         <Link href="/orders">
-                            <Boton className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-lg border border-blue-600">
+                            <Boton className="bg-blue-500 hover:bg-blue-700 text-white font-bold m-2 py-1 px-2 rounded-lg border border-blue-600">
                                 Ver órdenes
                             </Boton>
                         </Link>

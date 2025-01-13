@@ -46,7 +46,7 @@ const Contacto = () => {
             <span>En todo!</span>
           </h1>
           <section className="bg-gray-800 bg-opacity-75 shadow-md rounded px-8 pt-8 pb-6">
-            <h2 className="text-2xl mb-6 font-bold">Formulario para que nos envíes un mensaje</h2>
+            <h2 className="text-2xl mb-6 font-bold">Formulario para que nos envíes un mensaje y obtengas descuento</h2>
             <form onSubmit={handleSubmit} className="max-w-md mx-auto">
               <div className="mb-6">
                 <label htmlFor="email" className="sr-only">Email</label>

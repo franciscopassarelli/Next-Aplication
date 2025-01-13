@@ -26,7 +26,7 @@ function QtySelector({ item }) {
         <div className="flex flex-col gap-5 mt-6">
             <Counter max={item.inStock} counter={quantity} setCounter={setQuantity} />
             <Boton className="w-full hover:bg-blue-600" onClick={handleAdd}>
-                Agregar al carrito 👜
+                Agregar al carrito 🛒
             </Boton>
             {/* Mostrar la alerta si showAlert es true */}
             {showAlert && (
