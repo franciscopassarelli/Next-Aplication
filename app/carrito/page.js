@@ -12,7 +12,7 @@ const Carrito = () => {
 
     return (
         <div className="container mx-auto my-8 p-4 bg-gray rounded-lg shadow-md">
-            <h2 className="text-3xl font-bold mb-6 text-gray-800">👜 Tu compra</h2>
+            <h2 className="text-3xl font-bold mb-6 text-gray-800">🛒 Tu compra</h2>
             <GoBack/>
             {cart != "" ?
                 <div>

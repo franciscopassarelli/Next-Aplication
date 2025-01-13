@@ -37,9 +37,7 @@ const Header = () => {
                 <Link href="/productos/todos" className="text-white hover:bg-white hover:text-black rounded-lg p-2">
                   Productos
                 </Link>
-                <Link href="/admin" className="text-white hover:bg-white hover:text-black rounded-lg p-2">
-                  Admin
-                </Link>
+         
                 <CartWidget/>
               </div>
             </div>

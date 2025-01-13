@@ -6,6 +6,9 @@ const ProductsTable = async () => {
         cache: 'no-store',
     }).then(r => r.json())
 
+
+    
+
     return (
         <div className="space-y-6">
             {/* Vista de Desktop: Tabla */}
