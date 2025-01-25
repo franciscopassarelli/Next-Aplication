@@ -38,6 +38,12 @@ const Contacto = () => {
   };
 
   return (
+
+
+
+
+      
+
     <div className="bg-black text-white flex justify-center items-center h-screen">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
@@ -84,6 +90,7 @@ const Contacto = () => {
         </div>
       </div>
     </div>
+  
   );
 };
 

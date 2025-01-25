@@ -9,7 +9,7 @@ const Thanks = () => {
             <div className="max-w-lg w-full bg-white shadow-lg rounded-lg overflow-hidden">
                 <div className="p-6">
                     <h2 className="text-3xl font-semibold text-gray-800 mb-4">
-                        ¡Gracias por su compra!
+                    ¡Gracias por su compra! Le enviaremos un correo electrónico para concretar la misma. ¡Saludos!
                     </h2>
                     <h3 className="text-xl font-medium text-gray-600 mb-8">
                         FrannTenis
