@@ -1,6 +1,6 @@
-'use client'; // Esto marca el componente como un Client Component
-
-import { useEffect, useState } from "react";
+'use client';
+import { UserIcon, CalendarIcon, ShoppingCartIcon } from "lucide-react";
+import { useEffect, useState, useCallback } from "react";
 import LogoutButton from "../components/admin/LogoutButton";
 import GoBack from "../components/ui/GoBack";
 import { db } from "../firebase/config";
@@ -8,72 +8,102 @@ import { collection, onSnapshot, doc, deleteDoc } from "firebase/firestore";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Referencia a la colección "ordenes"
     const ordersRef = collection(db, "ordenes");
 
-    // Listener en tiempo real
     const unsubscribe = onSnapshot(ordersRef, (querySnapshot) => {
       const ordersData = querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
       setOrders(ordersData);
+      setIsLoading(false);
+    }, (err) => {
+      setError("Hubo un problema al cargar las órdenes.");
+      setIsLoading(false);
     });
 
-    // Limpiar el listener cuando el componente se desmonte
     return () => unsubscribe();
   }, []);
 
-  // Función para eliminar una orden con confirmación
-  const handleDelete = async (orderId) => {
+  const handleDelete = useCallback(async (orderId) => {
     const confirmDelete = window.confirm("¿Estás seguro de que deseas eliminar esta orden?");
-
     if (confirmDelete) {
       try {
         const orderRef = doc(db, "ordenes", orderId);
-        await deleteDoc(orderRef);  // Eliminar la orden de Firebase
+        await deleteDoc(orderRef);
         alert("Orden eliminada con éxito!");
       } catch (error) {
         console.error("Error al eliminar la orden: ", error);
         alert("Hubo un error al eliminar la orden.");
       }
     }
-  };
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-full">
+        <div className="flex flex-col items-center space-y-4">
+          <div className="w-16 h-16 border-4 border-t-transparent border-blue-500 border-solid rounded-full animate-spin"></div>
+          <p className="text-gray-600 text-xl">Cargando órdenes...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return <p className="text-red-600 text-center">{error}</p>;
+  }
 
   return (
     <div className="container mx-auto mt-6">
       <div className="flex justify-end mb-6 pr-4">
         <LogoutButton />
       </div>
-      <GoBack />
+      <div className="mb-6 pl-4">
+        <GoBack />
+      </div>
+
       <h2 className="text-3xl text-gray-600 mb-6 text-center font-bold animate-pulse">
         Órdenes
       </h2>
 
-      <div className="grid grid-cols-1 gap-4">
+      <div className="grid grid-cols-1 gap-6 px-4">
         {orders.map(order => (
-          <div key={order.id} className="bg-white shadow-md rounded-lg p-4">
-            <div className="flex justify-between mb-4">
-              <div className="flex flex-col w-full">
-                <p className="text-lg text-gray-800"><span className="font-bold">Comprador:</span> {order.client.nombre}</p>
-                <p className="text-lg text-gray-600 mt-2"><span className="font-bold">Fecha:</span> {new Date(order.date).toLocaleString()}</p>
-                <p className="text-lg text-gray-800 mt-2"><span className="font-bold">Productos:</span></p>
-                <ul className="border-b mb-2 pb-2">
+          <div key={order.id} className="bg-white shadow-md rounded-2xl p-6 border border-gray-200 transition hover:shadow-lg">
+            <div className="flex justify-between items-start gap-4">
+              <div className="flex flex-col space-y-2 w-full">
+                <div className="flex items-center gap-2 text-gray-800 text-lg font-semibold">
+                  <UserIcon size={18} />
+                  <span>Comprador: <span className="font-normal">{order.client.nombre}</span></span>
+                </div>
+
+                <div className="flex items-center gap-2 text-gray-600 text-base">
+                  <CalendarIcon size={18} />
+                  <span>Fecha: <span className="font-medium">{new Date(order.date).toLocaleString()}</span></span>
+                </div>
+
+                <div className="flex items-center gap-2 text-gray-800 text-base font-semibold mt-1">
+                  <ShoppingCartIcon size={18} />
+                  <span>Productos:</span>
+                </div>
+
+                <ul className="list-disc list-inside text-gray-700 text-sm space-y-1 mb-2">
                   {order.items.map(item => (
-                    <li key={item.slug} className="text-gray-700">({item.quantity}) {item.title}</li>
+                    <li key={item.slug}>
+                      <span className="font-medium">({item.quantity})</span> {item.title}
+                    </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Botón de eliminar alineado a la derecha */}
               <button 
                 onClick={() => handleDelete(order.id)} 
-                className="bg-red-500 text-white text-sm py-0.5 px-2 rounded hover:bg-red-600 mt-2 ml-4"
+                className="bg-red-500 text-white text-sm px-3 py-1 rounded-md hover:bg-red-600 shadow-sm transition"
               >
-                Eliminar órden
+                Eliminar orden
               </button>
             </div>
-
-            <hr className="my-4 border-gray-300" />
           </div>
         ))}
       </div>

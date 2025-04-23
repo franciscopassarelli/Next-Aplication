@@ -4,7 +4,7 @@ import Footer from "./components/ui/Footer";
 import Image from "next/image";
 const WelcomeBanner = () => {
   return (
-    <div className="bg-blue-500 text-white p-6 rounded-md shadow-md text-center">
+    <div className="bg-animated text-white p-6 rounded-md shadow-md text-center">
       <h1 className="text-5xl font-bold mb-2">¡Bienvenido a nuestra tienda de tenis!</h1>
       <p className="text-lg">Encuentra los mejores productos para tu estilo deportivo.</p>
     </div>

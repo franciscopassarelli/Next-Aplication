@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState, useEffect } from "react";
 import Footer from "../ui/Footer";
 import Image from "next/image";
@@ -15,39 +15,53 @@ export default function NosotrosComponent() {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setImagenActual((prevIndex) => (prevIndex + 1) % imagenes.length);
-    }, 2000);
+    }, 3000);
 
     return () => clearInterval(intervalId);
-  }, [imagenActual, imagenes.length]);
+  }, []);
 
   return (
     <>
-      <div className="bg-gradient-to-b from-slate-500 to-gray-800 min-h-screen">
-        <h1 className="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">SOBRE NOSOTROS</span>
-        </h1>
-        <br />
-        <div className="max-w-6xl mx-auto p-4 flex flex-col md:flex-row items-center">
-          <div className="w-full md:w-1/2 p-4 bg-black bg-opacity-40">
-            <h3 className="text-3xl font-extrabold mb-4 text-white color-changing-title">NUESTRA TIENDA</h3>
-            <p className="mb-4 text-lg leading-relaxed text-gray-400">
-              <i className="text-xl font-bold text-blue-500">FranTenis</i> comenzó como un proyecto personal que ha florecido y se ha transformado en una tienda en línea próspera. Iniciamos este viaje como un emprendimiento independiente, y ahora estamos emocionados de presentar nuestra tienda en línea al mundo. Desde sus modestos comienzos como un proyecto propio, <i className="text-bold text-yellow-500">FranTenis</i> ha evolucionado para ofrecerte una experiencia única en nuestra tienda en línea especializada.
-            </p>
-            <p className="mb-4 text-lg leading-relaxed text-gray-400">
-              <a className="text-xl font-bold text-blue-300">H</a>ace 4 años, respondimos a la demanda de los clubes en la ciudad de zona oeste y superamos las expectativas de tenistas de diversas edades y categorías. Nos enorgullece ofrecer no solo productos de alta calidad, sino también un servicio eficiente a nuestros clientes. <i className="text-bold text-yellow-500">FranTenis</i> abarca una amplia gama de indumentaria para el disfrute del tenis, tanto como actividad lúdica como deportiva.
-            </p>
-            <p className="text-lg leading-relaxed text-gray-300">
-              <a className="text-xl font-bold text-blue-300">N</a>uestro equipo actual, compuesto por apasionados amantes del tenis, comprende las exigencias de nuestros clientes. Estamos comprometidos a brindar la mejor experiencia y a seguir evolucionando para satisfacer tus necesidades.
-            </p>
-          </div>
-          <div className="w-full md:w-1/2 p-4 flex justify-center items-center">
-            <div className="w-full md:w-3/4 h-auto rounded-md overflow-hidden image-container relative">
-              <Image src={imagenes[imagenActual]} alt="Zapatos de Tenis" width={400} height={400} className="w-full h-full object-cover" />
+      <section className="bg-gradient-to-b from-gray-700 to-gray-900 min-h-screen text-white">
+        <div className="max-w-7xl mx-auto px-6 py-12">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-center mb-12">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-500">
+              SOBRE NOSOTROS
+            </span>
+          </h1>
+
+          <div className="flex flex-col md:flex-row gap-10 items-center">
+            <div className="md:w-1/2 space-y-6 bg-black bg-opacity-30 p-6 rounded-lg">
+              <h3 className="text-2xl md:text-3xl font-bold text-yellow-400">NUESTRA TIENDA</h3>
+
+              <p className="text-lg leading-relaxed text-gray-300">
+                <strong className="text-blue-400">FranTenis</strong> comenzó como un proyecto personal que ha florecido y se ha transformado en una tienda en línea próspera. Desde sus modestos comienzos, <span className="text-yellow-400">FranTenis</span> ha evolucionado para ofrecerte una experiencia única.
+              </p>
+
+              <p className="text-lg leading-relaxed text-gray-300">
+                Hace 4 años, respondimos a la demanda de clubes en la zona oeste y superamos las expectativas de tenistas de todas las edades. Nos enorgullece ofrecer productos de calidad y un servicio eficiente.
+              </p>
+
+              <p className="text-lg leading-relaxed text-gray-300">
+                Nuestro equipo, compuesto por amantes del tenis, comprende las exigencias de nuestros clientes. Estamos comprometidos con brindar la mejor experiencia.
+              </p>
+            </div>
+
+            <div className="md:w-1/2 w-full flex justify-center">
+              <div className="w-full md:w-4/5 rounded overflow-hidden shadow-lg transition duration-500 ease-in-out">
+                <Image
+                  src={imagenes[imagenActual]}
+                  alt="Imagen de producto"
+                  width={500}
+                  height={500}
+                  className="object-cover w-full h-96 rounded transition-all duration-700"
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <hr />
+      </section>
+
       <Footer />
     </>
   );
